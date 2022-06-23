@@ -19,7 +19,7 @@ template:
       imagePullPolicy: Always
       ports:
       - containerPort: 5000
-        name: hello
+        name: demo
 
 ---
 apiVersion: v1
