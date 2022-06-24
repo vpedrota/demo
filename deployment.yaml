@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: demo
+labels:
+  app: demo
+spec:
+strategy:
+  type: Recreate
+template:
+  metadata:
+    labels:
+      app: demo
+      tier: demo
+  spec:
+    containers:
+    - name: hello
+      image: victorpedrota/demo:latest
+      imagePullPolicy: Always
+      ports:
+      - containerPort: 80
+        name: demo
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+name: demo
+labels:
+  app: demo
+spec:
+ports:
+  - port: 80
+    targetPort: 80
+selector:
+  app: demo
+  tier: demo
+type: LoadBalancer
