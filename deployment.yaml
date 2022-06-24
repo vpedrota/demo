@@ -4,7 +4,7 @@ kind: Deployment
 
 metadata:
 
-  name: nginx-deployment
+  name: demo
 
   labels:
 
@@ -12,7 +12,7 @@ metadata:
 
 spec:
 
-  replicas: 3
+  replicas: 1
 
   selector:
 
@@ -34,7 +34,7 @@ spec:
 
       - name: nginx
 
-        image: nginx:1.14.2
+        image: victorpedrota/demo:latest
 
         ports:
 
