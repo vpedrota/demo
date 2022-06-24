@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo
+  name: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: demo
+      app: nginx
   template:
     metadata:
       labels:
-        app: demo
+        app: nginx
     spec:
       containers:
-      - name: demo
+      - name: nginx
         image: victorpedrota/demo:latest
         ports:
         - containerPort: 80
